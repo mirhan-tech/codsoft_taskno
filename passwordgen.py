@@ -8,7 +8,6 @@ class PasswordGenerator(Tk):
 
     def __init__(self):
         super().__init__()
-        # Centering the window when opened.
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
         app_width = 500
