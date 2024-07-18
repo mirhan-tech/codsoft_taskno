@@ -1,9 +1,7 @@
-from termcolor import colored
-
 class FormatInput:
 
     def __init__(self):
-        self.expression = input(colored("Enter expression in pattern 'num_1 operator num_2': ", "cyan"))
+        self.expression = input("Enter expression in pattern 'num_1 operator num_2': ")
 
     def format_exp(self):
         exp = self.expression.split(" ")
@@ -13,7 +11,7 @@ class FormatInput:
             val2 = float(exp[2])
             return val1, val2, oper
         except ValueError:
-            print(colored("Got anything other than numbers!", 'red'))
+            print("Got anything other than numbers!")
 
 class Calculator:
 
@@ -36,7 +34,7 @@ class Calculator:
         try:
             return self.num1 / self.num2
         except ZeroDivisionError:
-            return colored("Division by Zero not possible !", "yellow")
+            return "Division by Zero not possible !"
 
     def operation(self):
         if self.choice == '+':
@@ -48,7 +46,7 @@ class Calculator:
         elif self.choice == '/':
             self.result = self.divide()
         else:
-            self.result = colored("Invalid operator choice !!", "red")
+            self.result = "Invalid operator choice !!"
         return self.result
 
 if __name__ == '__main__':
@@ -56,15 +54,13 @@ if __name__ == '__main__':
         user_input = FormatInput()
         try:
             num1, num2, op = user_input.format_exp()
-            print(colored(f"First Number = {num1}\nOperator = {op}\nSecond Number = {num2}", "magenta"))
+            print(f"First Number = {num1}\nOperator = {op}\nSecond Number = {num2}")
             calc = Calculator(num1, num2, op)
             result = calc.operation()
-            print(colored(f"{num1} {op} {num2} = {result}", "blue"))
+            print(f"{num1} {op} {num2} = {result}")
         except TypeError:
-            print(colored("Please enter numbers and try again!", "light_yellow"))
+            print("Please enter numbers and try again!")
         finally:
-            in_end = input("Do you want to continue calculation(Y|y): ")
-            if in_end.lower() == 'y':
-                continue
-            else:
+            in_end = input("Do you want to continue calculation (yes/no): ")
+            if in_end.lower() != 'yes':
                 break
