@@ -54,12 +54,12 @@ class TodoApp(Tk):
         frame.pack(fill = X)
         return frame
 
-    def create_new_item_entry_box(self
+    def create_new_item_entry_box(self):
         entry = Entry(self.item_input_frame, width = 50, borderwidth = 0, font = ('Helvetica', 22))
         entry.pack(side = LEFT)
         return entry
 
-    def create_add_button(self
+    def create_add_button(self):
         button = Button(self.item_input_frame, text = "Add to list", width = 18, borderwidth = 0, font = ('Helvetica', 14, 'bold'), bg = "#2e5d72", fg = "#ffffff", command = self.add_item)
         button.pack(side = LEFT)
 
